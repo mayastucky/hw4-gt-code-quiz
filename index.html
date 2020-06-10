@@ -4,13 +4,67 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
     <title>Code Quiz</title>
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="logo">View Highscores</div>
+          <div class="col-md-4">
+            <div class="score">Time:<span id="timer"> 0</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container start-page" id="start-page">
+      <h1>Hello Friends</h1>
+      <p>
+        Welcome to the coding quiz! Like I did while coding this, just try your
+        best.
+      </p>
+      <button type="button" class="btn btn-primary" id="start-button">
+        Start!
+      </button>
+    </div>
 
+    <!-- Question Section -->
+    <div class="container" id="quiz">
+      <div class="row">
+        <div class="col-md-4">
+          <h4 id="questionHeader">Question</h4>
+          <ul id="options">
+            <li id="a">a</li>
+            <li id="b">b</li>
+            <li id="c">c</li>
+            <li id="d">d</li>
+          </ul>
+          <p id="correctPlaceholder"></p>
+        </div>
+      </div>
+    </div>
 
-
-    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
