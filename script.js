@@ -7,21 +7,12 @@ var timerEl = document.querySelector("#timer");
 const allButtonsEl = document.querySelectorAll(".buttonOpt");
 var yesOrNoEl = document.querySelector("#correctPlaceholder");
 
-// allButtonsEl.addEventListener("click", function(){
-//   generateQuestions();
-// });
 startButtonEl.addEventListener("click", function (event) {
-  //firstQuestionEl.classList.add("toggle-first-class");
-  // event.preventDefault();
   console.log("Button was clicked");
   startPageEl.style.display = "none";
   generateQuestions();
   setTimer();
 });
-
-// optionsEl.addEventListener("click", function () {
-//   generateQuestions();
-// });
 
 //starts the index of the object at position 0 to display the first question when the start button is clicked
 var questionIndex = 0;
@@ -41,13 +32,12 @@ function generateQuestions() {
   //optionsEl.textContent = questions[questionIndex].option;
   // console.log(optionsEl);
   //questionIndex = questionIndex + 1;
-
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < questions.length; i++) {
     console.log("create button!");
     var choicesButton = document.createElement("button");
     //this variable choicesFromArray is assigned to whatever the options are at whatever spot questionIndex is currently at
     //var choicesFromArray = questions[questionIndex].option;
-    console.log(choicesFromArray);
+    // console.log(choicesFromArray);
     //sets the button text to be whatever the options from the choicesFromArray were
     choicesButton.innerHTML = choicesFromArray[i];
     choicesButton.setAttribute("class", "btn btn-primary buttons");
@@ -72,18 +62,10 @@ function generateQuestions() {
   }
 }
 
-// function quizOver() {
-//   if (questionIndex === -1) {
-//     alert("You have completed the quiz!");
-//   }
-// }
-// quizOver();
-
 //TIMER TIME!
 secondsLeft = 75;
 function setTimer() {
   var timerInterval = setInterval(function () {
-    // console.log("Timer set");
     secondsLeft--;
     timerEl.textContent = " " + secondsLeft;
     if (secondsLeft === 0) {
@@ -92,7 +74,7 @@ function setTimer() {
   }, 1000);
 }
 
-//my beautiful question object!
+//my beautiful question object containing the questions, options, and correct answers for each question
 const questions = [
   {
     q: "Commonly Used Data Types DO NOT include",
