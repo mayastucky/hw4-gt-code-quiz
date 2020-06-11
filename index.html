@@ -12,24 +12,29 @@
         <div class="row justify-content-md-center">
           <div class="logo">View Highscores</div>
           <div class="col-md-4">
-            <div class="score">Time:<span id="timer"> 0</span></div>
+            <div class="score">Time:<span id="timer"> 75</span></div>
           </div>
         </div>
       </div>
     </header>
     <div class="container start-page" id="start-page">
-      <h1>Hello Friends</h1>
-      <p>
-        Welcome to the coding quiz! Like I did while coding this, just try your
-        best.
-      </p>
-      <button type="button" class="btn btn-primary" id="start-button">
-        Start!
-      </button>
+      <div class="row">
+        <div class="col-md-4">
+          <h1>Coding Quiz Challenge</h1>
+          <p>
+            Try to answer the following code-related questions within the time
+            limit. Keep in mind that incorrect answers will penalize your score
+            time by ten seconds.
+          </p>
+          <button type="button" class="btn btn-primary" id="start-button">
+            Start!
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- Question Section -->
-    <div class="container" id="quiz">
+    <div class="container hidden" id="quiz">
       <div class="row">
         <div class="col-md-4">
           <h4 id="questionHeader">Question</h4>
