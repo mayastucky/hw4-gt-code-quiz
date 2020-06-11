@@ -32,7 +32,8 @@ function generateQuestions() {
   //optionsEl.textContent = questions[questionIndex].option;
   // console.log(optionsEl);
   //questionIndex = questionIndex + 1;
-  for (var i = 0; i < questions.length; i++) {
+  
+  for (var i = 0; i < 4; i++) {
     console.log("create button!");
     var choicesButton = document.createElement("button");
     //this variable choicesFromArray is assigned to whatever the options are at whatever spot questionIndex is currently at
@@ -57,6 +58,11 @@ function generateQuestions() {
       questionIndex++;
       console.log(questionIndex);
       console.log(this.innerHTML);
+      // if (questionIndex === questions.length) {
+
+      // } else {
+      //   generateQuestions();
+      // }
       generateQuestions();
     });
   }
