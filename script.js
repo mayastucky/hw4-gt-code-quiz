@@ -1,74 +1,62 @@
 const startButtonEl = document.querySelector("#start-button");
 const startPageEl = document.querySelector("#start-page");
 const questionEl = document.querySelector("#questionHeader");
-// const nxtBtn = document.querySelector("#next-button");
-// const firstQuestionEl = document.querySelector("#questions");
-// const questionsArray = [
-//   "1: Commonly Used data types DO NOT Include:",
-//   "he condition in an if/ else statement is enclosed within ___.",
-// ];
+const optionsEl = document.querySelector("#options");
+const questionPageEl = document.querySelector("#quiz");
+var timerEl = document.querySelector("#timer");
+const allButtonsEl = document.querySelectorAll(".buttonOpt");
 
-// const optionOneArray = ["a", "b", "c", "d"];
-
+// allButtonsEl.addEventListener("click", function(){
+//   generateQuestions();
+// });
 startButtonEl.addEventListener("click", function (event) {
   //firstQuestionEl.classList.add("toggle-first-class");
-  event.preventDefault();
+  // event.preventDefault();
   console.log("Button was clicked");
   startPageEl.style.display = "none";
   generateQuestions();
+  setTimer();
 });
-
-questionIndex = -1;
-
+questionIndex = 0;
+// This function of the code was inspired code from https://github.com/lbernadel/Code-Quiz
 function generateQuestions() {
-  questionIndex = questionIndex + 1;
+  questionPageEl.style.display = "block";
+  //starts the index of the object at position 0 to display the first question when the start button is clicked
+  //this defines the correct answer as the answer stored in "an" in the object at index 0
   correctAnswer = questions[questionIndex].an;
-
+  //this updates the stored text from the HTML to display the question in the object at index 0
   questionEl.textContent = questions[questionIndex].q;
+  optionsEl.innerHTML = "";
+  //this helps define and set what array the options are supposed to be pulled out of so they aren't pulled out of the next array every single time
+  var choicesFromArray = questions[questionIndex].option;
+  //optionsEl.textContent = questions[questionIndex].option;
+  // console.log(optionsEl);
+  for (var i = 0; i < 4; i++) {
+    questionIndex = questionIndex + 1;
+    console.log("create button!");
+    var choicesButton = document.createElement("button");
+    //sets the button text to be whatever the options from the choicesFromArray were
+    choicesButton.innerHTML = choicesFromArray[i];
+    choicesButton.setAttribute("class", "btn btn-primary buttons");
+    choicesButton.style.margin = "20px";
+    console.log(choicesButton);
+    buttons = optionsEl.append(choicesButton);
+  }
+}
+//TIMER TIME!
+secondsLeft = 75;
+function setTimer() {
+  var timerInterval = setInterval(function () {
+    console.log("Timer set");
+    secondsLeft--;
+    timerEl.textContent = " " + secondsLeft;
+    if (secondsLeft === 0) {
+      clearInterval();
+    }
+  }, 1000);
 }
 
-// nxtBtn.addEventListener("click", function (event) {
-//   console.log("nxt Button was clicked");
-
-//   generateQuestion();
-// });
-
-// function generateQuestion() {
-//   const questionOne = document.querySelector("#questions");
-//   // const q = `<h1>1: Commonly Used data types DO NOT Include:</h1>`;
-//   questionOne.innerHTML = `<h1>${questionsArray[0]}</h1>`;
-//   generateOptions();
-// }
-
-// function generateOptions() {
-//   const optionOne = document.createElement("button");
-//   optionOne.textContent = optionOneArray[0];
-//   const optionTwo = document.createElement("button");
-//   optionTwo.textContent = optionOneArray[1];
-//   const optionThree = document.createElement("button");
-//   optionThree.textContent = optionOneArray[2];
-//   const optionFour = document.createElement("button");
-//   optionFour.textContent = optionOneArray[3];
-
-//   document.body.appendChild(optionOne);
-//   document.body.appendChild(optionTwo);
-//   document.body.appendChild(optionThree);
-//   document.body.appendChild(optionFour);
-// }
-
-// const q = [
-//   {
-//     q1: "what is this",
-//     option: ["a", "b", "c", "d"],
-//     an: "",
-//   },
-//   {
-//     q2: "what is this 2",
-//     option: ["a", "b", "c", "d"],
-//     an: "",
-//   },
-// ];
-
+//my beautiful question object!
 const questions = [
   {
     q: "Commonly Used Data Types DO NOT include",
