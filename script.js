@@ -77,6 +77,7 @@ function setTimer() {
     timerEl.textContent = " " + secondsLeft;
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
+      window.location.href = "scoreboard.html";
     }
   }, 1000);
 }
